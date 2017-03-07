@@ -102,16 +102,19 @@ app.use(mountPath, api);
 
 
 app.get('/', function(req, res) {
-  res.render('MesaDeRegalos/landing/index', 
+  res.render('hitec/general/login', 
   { 
-    description: "",
+    description:"",
     content: "HiTec",
-    title: "Próximamente",
+    title: "Login",
     error: "0",
     errorType: "",
     flash: "",
-    tkn_fid: req.cookies.tkn_fid
   });
+});
+
+app.post('/login',function(request, response){
+  response.redirect("./admin");
 });
 
 var user = require(path.join(__dirname, '/routes/user'));

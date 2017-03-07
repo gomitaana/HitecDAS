@@ -42,7 +42,7 @@ module.exports = function(req, res, next) {
         //here we got the Mobile Number -> Query DB -> identify the user to service
         var temp = JSON.parse(body);
         console.log("Salida request requireUser: "+temp);
-        if(req.currentUser.get("type") === "USER"){
+        if(req.currentUser.get("type") === "ADMIN"){
           next();
         }else{
           res.send("No tienes permiso de ver esto");

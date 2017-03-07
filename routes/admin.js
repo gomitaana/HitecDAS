@@ -9,11 +9,17 @@ var CryptoJS          = require("crypto-js");
 var app               = require(path.join(__dirname, '../index'));
 var functionsDataGral = require(path.join(__dirname, '../functions/general'));
 var currentUser       = require(path.join(__dirname, '/current-user'));
+var requireAdmin      = require(path.join(__dirname, '/require-admin'));
 
-/*ACCOUNT KIT CONFIG BACKEND*/
-//var csrf_guid = Guid.raw();
-var csrf_guid         = app.csrf_guid;
-var ConfigAccountKit  = require(path.join(__dirname, '../account_kit_config'));
-
+router.get('/' ,function(req, res) {
+  res.render('hitec/admin/brands', { 
+      description: "",
+      content: "Tienda Actual",
+      title: "Usuarios",
+      error: "0",
+      errorType: "",
+      flash: ""
+    });
+});
 
 module.exports = router;
