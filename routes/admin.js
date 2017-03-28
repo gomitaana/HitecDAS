@@ -17,10 +17,16 @@ var requireAdmin      = require(path.join(__dirname, '/require-admin'));
 var csrf_guid         = app.csrf_guid;
 var ConfigAccountKit  = require(path.join(__dirname, '../account_kit_config'));
 
+/**
+ * Redirect to the dashboard
+ */
 router.get('/' ,function(req, res) {
   res.redirect("/admin/dashboard");
 });
 
+/**
+ * Shows the main window of the admin
+ */
 router.get('/dashboard' ,function(req, res) {
   res.render('hitec/admin/dashboard', { 
       description: "",
@@ -38,6 +44,9 @@ router.get('/dashboard' ,function(req, res) {
     });
 });
 
+/**
+ * Show all the actual Capitans of the teams
+ */
 router.get('/capitans' ,function(req, res) {
   res.render('hitec/admin/capitans', { 
       description: "",
@@ -55,6 +64,9 @@ router.get('/capitans' ,function(req, res) {
     });
 });
 
+/**
+ * Shows all the students
+ */
 router.get('/students' ,function(req, res) {
   res.render('hitec/admin/students', { 
       description: "",

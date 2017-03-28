@@ -22,18 +22,17 @@
     "multer": "*",
     "parse": "*",
     "parse-server": "*",
-    "request": "^2.69.0",
+    "request": "*",
     "sendgrid": "*",
     "serve-favicon": "*",
     "underscore": "*",
     "parse-dashboard": "*",
-    "request": "*",
     "apiai": "*",
-    "guid":"*",
+    "guid": "*",
     "querystring": "*",
-    "helmet":"*",
-    "morgan":"*",
-    "cookie-parser":"*",
+    "helmet": "*",
+    "morgan": "*",
+    "cookie-parser": "*",
     "crypto-js": "*"
   },
   "scripts": {
@@ -41,5 +40,9 @@
   },
   "engines": {
     "node": ">=4.3"
+  },
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-jsdoc": "^2.1.0"
   }
 }

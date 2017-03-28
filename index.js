@@ -107,7 +107,10 @@ app.use(cookieParser());
 var mountPath = process.env.PARSE_MOUNT || '/parse';
 app.use(mountPath, api);
 
-
+/**
+ * Main function
+ * Render the index
+ */
 app.get('/', function(req, res) {
   res.render('hitec/general/index', 
   { 
@@ -126,6 +129,11 @@ app.get('/', function(req, res) {
     usr_fid: req.cookies.usr_fid,
   });
 });
+
+/**
+ * Birthday get the list of students
+ * Render birthday
+ */
 
 app.get('/birthday', function(req, res) {
   var Students = Parse.Object.extend("students");
@@ -164,6 +172,12 @@ app.get('/birthday', function(req, res) {
   });
 });
 
+/**
+ * Search by lasname or id
+ * Render index
+ *@param {sting} option
+ *@param {sting} search
+ */
 app.get('/search', function(req, res) {
   var option = req.query.radios;
   var search = req.query.search;
@@ -203,6 +217,12 @@ app.get('/search', function(req, res) {
   });
 });
 
+/**
+ * Select a random team
+ * Render index
+ *@param {sting} id
+ *
+ */
 app.get('/selectTeam', function(req, res) {
   var id = req.query.student;
 
@@ -263,6 +283,10 @@ app.get('/selectTeam', function(req, res) {
   });
 });
 
+/**
+ * Show the form to add a student
+ *Render addStudent
+ */
 app.get('/addStudent', function(req, res) {
   res.render('hitec/general/addStudent', 
   { 
@@ -282,6 +306,15 @@ app.get('/addStudent', function(req, res) {
   });
 });
 
+/**
+ * Save the new record
+ * Render index
+ *@param {sting} matricula
+ *@param {sting} name
+ *@param {sting} lastname
+ *@param {sting} parents
+ *@param {sting} birthday
+ */
 app.post('/saveStudent' ,function(req, res) {
     var Students = Parse.Object.extend("students");
     var student = new Students();
@@ -328,6 +361,10 @@ app.post('/saveStudent' ,function(req, res) {
     }); 
 });
 
+/**
+ * Send the code to the API of facebook
+ * Render admin
+ */
 app.post('/sendcode',function(request, response){
   console.log("CSRF REQ->" + request.body.csrf_nonce);
   console.log("CSRF->" + csrf_guid);
@@ -430,7 +467,7 @@ if(config.production == "false"){
 }
 
 /**********************************************************/
-/*********************CONTROLADORES************************/
+/*********************Controlers************************/
 /**********************************************************/
 var admin  = require(path.join(__dirname, '/routes/admin'));
 app.use('/admin', admin);

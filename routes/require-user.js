@@ -53,7 +53,7 @@ module.exports = function(req, res, next) {
     //next();
   } else {
     res.send("No tienes permiso de ver esto");
-    /*res.render('Yolollevo/error-page', {
+    /*res.render('hitec/error-page', {
   		title: "Principal", 
   		description:"", 
   		content:"Yo lo llevo",
