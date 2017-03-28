@@ -1,0 +1,64 @@
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '<%= appId %>'
+      xfbml      : true,
+      version    : 'v2.8'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+<!-- HTTPS required. HTTP will give a 403 forbidden response -->
+<script src="https://sdk.accountkit.com/es_LA/sdk.js"></script>
+<script type="text/javascript">
+/*ACCOUNT KIT*/
+  // initialize Account Kit with CSRF protection
+  AccountKit_OnInteractive = function(){
+    AccountKit.init(
+      {
+        appId:"<%= appId %>", 
+        state:"<%= csrf %>", 
+        version:"<%= version %>"
+      }
+    );
+  };
+  // login callback
+  function loginCallback(response) {
+    console.log(response);
+    if (response.status === "PARTIALLY_AUTHENTICATED") {
+      document.getElementById("code").value = response.code;
+      document.getElementById("csrf_nonce").value = response.state;
+      document.getElementById("login-nav").submit();
+    }
+    else if (response.status === "NOT_AUTHENTICATED") {
+      // handle authentication failure
+      alert(response);
+    }
+    else if (response.status === "BAD_PARAMS") {
+      // handle bad parameters
+      alert(response);
+    }
+  }
+  // phone form submission handler
+  function phone_btn_onclick() {
+    var country_code = document.getElementById("country_code").value;
+    var ph_num = document.getElementById("phone_num").value;
+    AccountKit.login('PHONE', 
+      {countryCode: country_code, phoneNumber: ph_num}, // will use default values if this is not specified
+      loginCallback);
+  }
+  // email form submission handler
+  function email_btn_onclick() {
+    console.log("LOGIN EMAIL");
+    var email_address = document.getElementById("email").value;
+    console.log("Correo: " + email_address);
+    AccountKit.login('EMAIL', {emailAddress: email_address}, loginCallback);
+  }
+</script>

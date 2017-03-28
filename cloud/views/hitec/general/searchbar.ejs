@@ -1,0 +1,29 @@
+<div class="col-md-12">
+  <form class="form-horizontal" action="/search">
+    <fieldset>
+    <!-- Multiple Radios (inline) -->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="radios">Buscar por:</label>
+      <div class="col-md-4"> 
+        <label class="radio-inline" for="radios-0">
+          <input name="radios" id="radios-0" value="matricula" checked="checked" type="radio">
+          Matricula
+        </label> 
+        <label class="radio-inline" for="radios-1">
+          <input name="radios" id="radios-1" value="apellido" type="radio">
+          Apellido
+        </label>
+      </div>
+    </div>
+
+    <!-- Search input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="search"></label>
+      <div class="col-md-5">
+        <input id="search" name="search" placeholder="Matricula/Apellido" class="form-control input-md" required="" type="search">
+      </div>
+    </div>
+
+    </fieldset>
+  </form>
+</div>

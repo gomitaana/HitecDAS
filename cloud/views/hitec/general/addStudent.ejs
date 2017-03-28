@@ -1,0 +1,101 @@
+<%- contentFor('head')%>
+<% include ../admin/css %>
+<%- contentFor('body')%>
+<div class="container">
+  <% include ./top-bar %>
+  <!-- ** MAIN CONTENT** -->
+  <!--main content start-->
+      <section id="">
+          <section class="wrapper site-min-height">
+          	<h3><i class="fa fa-angle-right"></i> Agregar Alumno</h3>
+
+            <div class="row mt">
+                  <div class="col-md-12">
+                      <div class="form-panel">
+                        <form class="form-horizontal" action="/saveStudent" method="POST">
+                          <fieldset>
+                          <!-- Text input-->
+                          <div class="form-group">
+                            <label class="col-md-4 control-label" for="matricula">Matricula</label>  
+                            <div class="col-md-4">
+                            <input id="matricula" name="matricula" placeholder="Matricula" class="form-control input-md" required="" type="text">
+                              
+                            </div>
+                          </div>
+
+                          <!-- Text input-->
+                          <div class="form-group">
+                            <label class="col-md-4 control-label" for="name">Nombre</label>  
+                            <div class="col-md-4">
+                            <input id="name" name="name" placeholder="Nombre" class="form-control input-md" required="" type="text">
+                              
+                            </div>
+                          </div>
+
+                          <!-- Text input-->
+                          <div class="form-group">
+                            <label class="col-md-4 control-label" for="lastname">Apellido Paterno</label>  
+                            <div class="col-md-4">
+                            <input id="lastname" name="lastname" placeholder="Apellido Paterno" class="form-control input-md" type="text" required="">
+                              
+                            </div>
+                          </div>
+
+                          <!-- Text input-->
+                          <div class="form-group">
+                            <label class="col-md-4 control-label" for="lastname">Apellido Materno</label>  
+                            <div class="col-md-4">
+                            <input id="lastname" name="lastName" placeholder="Apellido Materno" class="form-control input-md" type="text">
+                              
+                            </div>
+                          </div>
+
+                          <!-- Text input-->
+                          <div class="form-group">
+                            <label class="col-md-4 control-label" for="lastname">Fecha Cumpleaños</label>  
+                            <div class="col-md-4">
+                          <input id="date" name="date" type="date" placeholder="MM-DD" class="form-control input-md">
+                               <span class="help-block">MM-DD</span> 
+                            </div>
+                          </div>
+
+                           <!-- Multiple Radios (inline) -->
+                          <div class="form-group">
+                            <label class="col-md-4 control-label" for="radios">Número de padres</label>
+                            <div class="col-md-4"> 
+                              <label class="radio-inline" for="radios-2">
+                                <input name="radios" id="radios-2" value="0" checked="checked" type="radio">
+                                0
+                              </label> 
+                              <label class="radio-inline" for="radios-0">
+                                <input name="radios" id="radios-0" value="1" type="radio">
+                                1
+                              </label> 
+                              <label class="radio-inline" for="radios-1">
+                                <input name="radios" id="radios-1" value="2" type="radio">
+                                2
+                              </label> 
+                            </div>
+                          </div>
+
+                              <!-- Button -->
+                          <div class="form-group">
+                            <label class="col-md-4 control-label" for="guardar"></label>
+                            <div class="col-md-4">
+                              <button id="guardar" name="guardar" class="btn btn-success">Guardar</button>
+                            </div>
+                          </div>
+
+                          </fieldset>
+                        </form>
+                      </div><!-- /content-panel -->
+                  </div><!-- /col-md-12 -->
+              </div><!-- /row -->
+
+			
+		      </section><! --/wrapper -->
+      </section><!-- /MAIN CONTENT -->
+</div>
+
+<%- contentFor('scripts')%>
+<% include ../general/accountKit %>
